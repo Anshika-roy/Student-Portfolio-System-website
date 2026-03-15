@@ -1,0 +1,309 @@
+/* -----------------------
+GENERAL STYLING
+----------------------- */
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+line-height:1.6;
+background:#f4f4f4;
+}
+
+
+/* -----------------------
+NAVBAR
+----------------------- */
+
+header{
+background:#ffffff;
+border-bottom:1px solid #ddd;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 60px;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:#333;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+margin:0;
+padding:0;
+}
+
+nav ul li{
+margin-left:25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+nav ul li a:hover{
+color:#007bff;
+}
+
+
+/* -----------------------
+HERO SECTION
+----------------------- */
+
+#hero{
+min-height:85vh;
+
+background:linear-gradient(
+135deg,
+#0c5a8f,
+#0b7a6c,
+#7ac943
+);
+
+color:white;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+padding:40px;
+}
+
+#hero h1{
+font-size:48px;
+max-width:900px;
+margin-bottom:20px;
+}
+
+#hero p{
+font-size:20px;
+max-width:600px;
+margin:auto;
+}
+
+
+/* -----------------------
+BUTTONS
+----------------------- */
+
+.action-buttons{
+margin-top:25px;
+}
+
+.action-buttons a{
+display:inline-block;
+margin:10px;
+padding:12px 28px;
+
+background:#ffc107;
+color:#000;
+
+text-decoration:none;
+border-radius:25px;
+font-weight:bold;
+
+transition:0.3s;
+}
+
+.action-buttons a:hover{
+background:#ffb300;
+}
+
+
+/* -----------------------
+ANIMATION CONTAINER
+----------------------- */
+
+#animation-container{
+margin-top:40px;
+height:200px;
+width:300px;
+
+background:white;
+border-radius:10px;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+/* -----------------------
+ABOUT SECTION
+----------------------- */
+
+#about{
+padding:80px 20px;
+text-align:center;
+background:white;
+}
+
+#about h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+#about p{
+max-width:700px;
+margin:auto;
+color:#555;
+font-size:18px;
+}
+
+
+/* -----------------------
+FOOTER
+----------------------- */
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:20px;
+font-size:14px;
+}
+
+
+/* -----------------------
+RESPONSIVE DESIGN
+----------------------- */
+
+@media(max-width:768px){
+
+nav{
+flex-direction:column;
+}
+
+nav ul{
+margin-top:10px;
+}
+
+#hero h1{
+font-size:32px;
+}
+
+#hero p{
+font-size:16px;
+}
+
+} 
+
+/* 1. Global Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+}
+
+/* 2. Navigation Styling */
+header {
+    padding: 20px 40px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+/* 3. Main Layout Container */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.home-page main {
+    display: block;
+    padding: 0;
+}
+
+/* 4. Login Card Styling */
+.form-section {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-section h2 {
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+/* 5. Input Groups */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #666;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* 6. Button Styling */
+#loginBtn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+#loginBtn:hover {
+    background-color: #0056b3;
+}
