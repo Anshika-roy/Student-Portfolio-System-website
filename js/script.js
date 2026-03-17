@@ -16,6 +16,70 @@ function renderList(elementId, items, fallbackText) {
 	});
 }
 
+function renderProjects(projects) {
+	const projectList = document.getElementById("display-projects");
+	projectList.innerHTML = "";
+
+	if (!projects.length) {
+		const li = document.createElement("li");
+		li.innerText = "No projects added yet";
+		projectList.appendChild(li);
+		return;
+	}
+
+	projects.forEach(function (project) {
+		const li = document.createElement("li");
+		const title = (project && project.title) ? project.title : "Untitled project";
+		const link = (project && project.link) ? project.link : "";
+
+		if (link) {
+			const anchor = document.createElement("a");
+			anchor.href = link;
+			anchor.target = "_blank";
+			anchor.rel = "noopener noreferrer";
+			anchor.innerText = title;
+			li.appendChild(anchor);
+		} else {
+			li.innerText = title;
+		}
+
+		projectList.appendChild(li);
+	});
+}
+
+function renderCertificates(certificates) {
+	const certificateList = document.getElementById("display-certificates");
+	certificateList.innerHTML = "";
+
+	if (!certificates.length) {
+		const li = document.createElement("li");
+		li.innerText = "No certificates added yet";
+		certificateList.appendChild(li);
+		return;
+	}
+
+	certificates.forEach(function (certificate) {
+		const li = document.createElement("li");
+		li.className = "certificate-item";
+
+		const title = document.createElement("p");
+		title.className = "certificate-title";
+		title.innerText = (certificate && certificate.name) ? certificate.name : "Certificate";
+		li.appendChild(title);
+
+		const imageUrl = (certificate && certificate.image) ? certificate.image : "";
+		if (imageUrl) {
+			const img = document.createElement("img");
+			img.src = imageUrl;
+			img.alt = title.innerText + " image";
+			img.className = "certificate-image";
+			li.appendChild(img);
+		}
+
+		certificateList.appendChild(li);
+	});
+}
+
 function displayPortfolio(user) {
 	document.getElementById("display-name").innerText = user.name || "User Name";
 	document.querySelector("#display-email span").innerText = user.email || "Not provided";
@@ -27,7 +91,8 @@ function displayPortfolio(user) {
 		: "No skills added yet";
 
 	renderList("display-education", Array.isArray(user.education) ? user.education : [], "No education added yet");
-	renderList("display-projects", Array.isArray(user.projects) ? user.projects : [], "No projects added yet");
+	renderProjects(Array.isArray(user.projects) ? user.projects : []);
+	renderCertificates(Array.isArray(user.certificates) ? user.certificates : []);
 }
 
 function showPortfolioError(message) {
@@ -36,7 +101,8 @@ function showPortfolioError(message) {
 	document.querySelector("#display-phone span").innerText = "-";
 	document.getElementById("display-skills").innerText = "-";
 	renderList("display-education", [], "-");
-	renderList("display-projects", [], "-");
+	renderProjects([]);
+	renderCertificates([]);
 }
 
 async function loadPortfolio() {

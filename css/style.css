@@ -307,3 +307,53 @@ main {
 #loginBtn:hover {
     background-color: #0056b3;
 }
+
+#registerForm textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    resize: vertical;
+}
+
+#registerForm textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+#display-projects a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#display-projects a:hover {
+    text-decoration: underline;
+}
+
+#display-certificates {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.certificate-item {
+    background: #f8f9fb;
+    border: 1px solid #e3e8ef;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.certificate-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.certificate-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #d9dee7;
+}

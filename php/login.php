@@ -5,15 +5,81 @@ session_start();
 $jsonFile = '../data/users.json';
 
 function normalizeList($value) {
-    if (is_array($value)) {
-        return array_values(array_filter(array_map('trim', $value), function ($item) {
-            return $item !== '';
-        }));
+    $items = is_array($value) ? $value : explode(',', (string) $value);
+    $normalized = [];
+
+    foreach ($items as $item) {
+        foreach (explode(',', (string) $item) as $part) {
+            $part = trim($part);
+            if ($part !== '') {
+                $normalized[] = $part;
+            }
+        }
     }
 
-    return array_values(array_filter(array_map('trim', explode(',', (string) $value)), function ($item) {
-        return $item !== '';
-    }));
+    return array_values($normalized);
+}
+
+function normalizeProjects($projects) {
+    if (!is_array($projects)) {
+        return [];
+    }
+
+    $normalized = [];
+    foreach ($projects as $project) {
+        if (is_array($project)) {
+            $title = trim((string) ($project['title'] ?? ''));
+            $link = trim((string) ($project['link'] ?? ''));
+            if ($title !== '') {
+                $normalized[] = [
+                    'title' => $title,
+                    'link' => $link
+                ];
+            }
+            continue;
+        }
+
+        $title = trim((string) $project);
+        if ($title !== '') {
+            $normalized[] = [
+                'title' => $title,
+                'link' => ''
+            ];
+        }
+    }
+
+    return $normalized;
+}
+
+function normalizeCertificates($certificates) {
+    if (!is_array($certificates)) {
+        return [];
+    }
+
+    $normalized = [];
+    foreach ($certificates as $certificate) {
+        if (is_array($certificate)) {
+            $name = trim((string) ($certificate['name'] ?? ''));
+            $image = trim((string) ($certificate['image'] ?? ''));
+            if ($name !== '') {
+                $normalized[] = [
+                    'name' => $name,
+                    'image' => $image
+                ];
+            }
+            continue;
+        }
+
+        $name = trim((string) $certificate);
+        if ($name !== '') {
+            $normalized[] = [
+                'name' => $name,
+                'image' => ''
+            ];
+        }
+    }
+
+    return $normalized;
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,7 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 'phone' => $user['phone'] ?? '',
                 'education' => normalizeList($user['education'] ?? []),
                 'skills' => normalizeList($user['skills'] ?? []),
-                'projects' => normalizeList($user['projects'] ?? ['Online Student Portfolio & Registration System'])
+                'certificates' => normalizeCertificates($user['certificates'] ?? []),
+                'projects' => normalizeProjects($user['projects'] ?? [['title' => 'Online Student Portfolio & Registration System', 'link' => '']])
             ];
             header("Location: ../portfolio.html");
             exit;
