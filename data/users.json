@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "anshika",
-        "email": "anshikaroy523@gmail.com",
+        "email": "abb@gmail.com",
         "password": "$2y$10$C3qpQWA6J8XooUZ0MI2VgOJzmOtOSwlcZsfEsQdgVX3JTJWEl1oHe",
         "phone": "1234567890",
         "skills": [
@@ -41,7 +41,7 @@
     {
         "id": 4,
         "name": "Runali",
-        "email": "abcde@example.com",
+        "email": "abcde@gmail.com",
         "password": "$2y$10$C3qpQWA6J8XooUZ0MI2VgOJzmOtOSwlcZsfEsQdgVX3JTJWEl1oHe",
         "phone": "7776665555",
         "education": [
