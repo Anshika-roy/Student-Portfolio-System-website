@@ -1,6 +1,3 @@
-Here’s a **clean, GitHub-ready README.md** for your project 🚀 (copy-paste directly):
-
----
 
 # 🎓 Student Portfolio & Registration System
 
